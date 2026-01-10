@@ -7,6 +7,7 @@ import HeroCarousel from "./HeroCarousel";
 import DealCountdown from "./DealCountdown";
 import RouteTimeline from "./RouteTimeline";
 import ItineraryTabs from "./ItineraryTabs";
+import BookingCard from "./BookingCard";
 
 interface ItineraryItem {
   day?: number;
@@ -79,6 +80,7 @@ export default function TourContent({ tour }: TourContentProps) {
       
       {/* Hero Carousel */}
       <HeroCarousel 
+        key={selectedPackage?.id || "default"} // Force re-render on package change to update images
         images={currentImages} 
         title={tour.title} 
         location={tour.location} 
@@ -86,37 +88,36 @@ export default function TourContent({ tour }: TourContentProps) {
       />
 
       <div className="container mx-auto px-6 py-12">
-  
-        {/* Duration Selector */}
-        {hasPackages && (
-          <div className="mb-12">
-            <h2 className="text-2xl font-bold font-serif text-gray-900 mb-6">Choose Trip Duration</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-              {tour.packages!.map((pkg) => (
-                <button
-                  key={pkg.id}
-                  onClick={() => setSelectedPackage(pkg)}
-                  className={`relative h-32 rounded-xl overflow-hidden text-left group transition-all ${
-                    selectedPackage?.id === pkg.id ? "ring-4 ring-blue-600 scale-105 z-10" : "hover:opacity-90"
-                  }`}
-                >
-                  <Image src={pkg.image} alt={pkg.duration} fill className="object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
-                  <div className="absolute bottom-3 left-3 text-white">
-                    <p className="text-xl font-bold">{pkg.duration}</p>
-                    <p className="text-xs text-gray-300">Starting From</p>
-                    <p className="font-semibold text-sm">{pkg.price}</p>
-                  </div>
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
-
+        
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-12">
             
+            {/* Duration Selector */}
+            {hasPackages && (
+              <div>
+                <h2 className="text-2xl font-bold font-serif text-gray-900 mb-6">Choose Trip Duration</h2>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  {tour.packages!.map((pkg) => (
+                    <button
+                      key={pkg.id}
+                      onClick={() => setSelectedPackage(pkg)}
+                      className={`relative h-24 rounded-xl overflow-hidden text-left group transition-all ${
+                        selectedPackage?.id === pkg.id ? "ring-4 ring-blue-600 scale-105 z-10" : "hover:opacity-90"
+                      }`}
+                    >
+                      <Image src={pkg.image} alt={pkg.duration} fill className="object-cover" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+                      <div className="absolute bottom-3 left-3 text-white">
+                        <p className="text-lg font-bold">{pkg.duration}</p>
+                        <p className="font-semibold text-xs opacity-90">{pkg.price}</p>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/* Route Timeline */}
             {normalizedRoute.length > 0 && (
               <section className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
@@ -187,50 +188,18 @@ export default function TourContent({ tour }: TourContentProps) {
 
           {/* Sidebar */}
           <div className="space-y-8">
-             <div className="bg-white p-6 rounded-2xl shadow-lg sticky top-32">
-               <div className="mb-6">
-                 <span className="text-xs text-gray-500 uppercase font-bold">Starting From</span>
-                 <div className="flex items-baseline gap-1">
-                   <span className="text-3xl font-bold text-blue-600">{currentPrice}</span>
-                 </div>
-                 <p className="text-sm text-gray-500 mt-1">{currentDuration}</p>
-               </div>
-               
-               <div className="space-y-4 mb-6">
-                 <div className="flex items-center gap-3 text-sm text-gray-600 border-b border-gray-100 pb-3">
-                   <i className="pi pi-calendar" />
-                   <span>Available Dates: <strong>May, June, July 2026</strong></span>
-                 </div>
-                 <div className="flex items-center gap-3 text-sm text-gray-600 border-b border-gray-100 pb-3">
-                   <i className="pi pi-user" />
-                   <span>Group Size: <strong>Max 12 People</strong></span>
-                 </div>
-               </div>
-
-               <div className="mb-6">
-                 <label className="text-sm font-bold text-gray-900 block mb-2">Stay Category</label>
-                 <div className="border border-orange-500 bg-orange-50 text-orange-700 px-4 py-3 rounded-lg font-medium flex justify-between items-center cursor-pointer">
-                   <span>Super Deluxe</span>
-                   <i className="pi pi-check-circle" />
-                 </div>
-               </div>
-
-               <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg mb-3 transition-colors shadow-lg shadow-blue-200">
-                 Book This Adventure
-               </button>
-               <div className="flex gap-2">
-                 <button className="flex-1 border border-gray-200 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 flex items-center justify-center gap-2">
-                   <i className="pi pi-envelope" /> Enquire
-                 </button>
-                 <button className="flex-1 border border-gray-200 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 flex items-center justify-center gap-2 text-green-600">
-                   <i className="pi pi-whatsapp" /> WhatsApp
-                 </button>
-               </div>
+             {/* Booking Card - Moved to top of sidebar */}
+             <div className="sticky top-24 z-20">
+                <BookingCard 
+                  price={currentPrice} 
+                  duration={currentDuration || "Duration"} 
+                />
              </div>
           </div>
         </div>
-        {/* Deal Countdown */}
-        <div className="my-12">
+        
+        {/* Deal Countdown - Above Footer */}
+        <div className="mt-16">
           <DealCountdown />
         </div>
 

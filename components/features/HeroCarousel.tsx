@@ -21,8 +21,16 @@ export default function HeroCarousel({ images, title, location, rating }: HeroCa
     return () => clearInterval(timer);
   }, [images.length]);
 
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
   return (
-    <div className="relative h-[60vh] w-full overflow-hidden">
+    <div className="relative h-[60vh] w-full overflow-hidden group">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentIndex}
@@ -46,6 +54,7 @@ export default function HeroCarousel({ images, title, location, rating }: HeroCa
       
       <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4 z-10">
         <motion.div
+          key={title} // Re-animate text when title changes (if package specific)
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2 }}
@@ -58,6 +67,20 @@ export default function HeroCarousel({ images, title, location, rating }: HeroCa
           </div>
         </motion.div>
       </div>
+
+      {/* Navigation Buttons */}
+      <button 
+        onClick={prevSlide}
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/30 text-white p-3 rounded-full backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100"
+      >
+        <i className="pi pi-chevron-left text-2xl" />
+      </button>
+      <button 
+        onClick={nextSlide}
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/30 text-white p-3 rounded-full backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100"
+      >
+        <i className="pi pi-chevron-right text-2xl" />
+      </button>
 
       {/* Indicators */}
       <div className="absolute bottom-8 left-0 right-0 flex justify-center gap-2 z-10">
