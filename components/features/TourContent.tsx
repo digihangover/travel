@@ -77,6 +77,11 @@ export default function TourContent({ tour }: TourContentProps) {
       )
     : [];
 
+  // Derive dynamic location string from route
+  const dynamicLocation = normalizedRoute.length > 0 
+    ? normalizedRoute.map(r => r.city).join(" • ")
+    : tour.location;
+
   const handleEnquire = () => {
     setIsConnectOpen(true);
   };
@@ -95,7 +100,7 @@ export default function TourContent({ tour }: TourContentProps) {
         key={selectedPackage?.id || "default"} // Force re-render on package change to update images
         images={currentImages} 
         title={tour.title} 
-        location={tour.location} 
+        location={dynamicLocation} 
         rating={tour.rating} 
       />
 
@@ -139,9 +144,25 @@ export default function TourContent({ tour }: TourContentProps) {
 
             {/* Route Timeline */}
             {normalizedRoute.length > 0 && (
-              <section className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                <h2 className="text-2xl font-bold font-serif mb-6">Destination Routes</h2>
+              <section className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                <h2 className="text-2xl font-bold font-serif mb-4">Destination Routes</h2>
                 <RouteTimeline route={normalizedRoute} />
+                
+                {/* Stay Category - Moved here */}
+                <div className="mt-4 pt-4 border-t border-gray-100">
+                  <label className="text-lg font-bold text-gray-900 block mb-3">Stay Category</label>
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                    <div className="border border-gray-200 bg-white text-gray-600 px-3 py-3 rounded-xl font-medium flex flex-col items-center justify-center cursor-pointer hover:border-orange-500 hover:bg-orange-50 transition-all text-center">
+                      <span className="text-sm">Deluxe</span>
+                    </div>
+                    <div className="border-2 border-orange-500 bg-orange-50 text-orange-700 px-3 py-3 rounded-xl font-medium flex flex-col items-center justify-center cursor-pointer relative text-center">
+                      <span className="text-sm font-bold">Super Deluxe</span>
+                      <div className="absolute -top-2 -right-2 bg-orange-500 text-white rounded-full p-1 shadow-sm">
+                        <i className="pi pi-check text-xs" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </section>
             )}
 

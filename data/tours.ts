@@ -26,18 +26,18 @@ export const tours = [
         itinerary: [
           { 
             day: 1, 
-            title: "Arrival in Paris", 
+            title: "Welcome to Paris – The City of Romance, Lights, and Glamour", 
             activity: "Transfer", 
-            description: "Welcome to Paris! Private transfer to hotel.", 
+            description: "Welcome to Paris, a city celebrated for its high fashion, world-famous museums, awe-inspiring landmarks, and captivating cabarets! Upon arrival, you’ll be welcomed by a tour manager who’ll transfer you to the hotel. The remainder of the day is at your leisure to unwind.\n\nOvernight at the hotel in Paris (Dinner).", 
             image: "/images/paris.png",
             stay: "Hotel Mercure Paris Centre Tour Eiffel (4 Star)",
             transfer: "Private Luxury Sedan"
           },
           { 
             day: 2, 
-            title: "Paris City Tour", 
+            title: "Paris", 
             activity: "Sightseeing", 
-            description: "Visit Eiffel Tower, Louvre, and Notre Dame.", 
+            description: "Today, we embark on a guided tour of Paris, where you’ll explore some of the most iconic Parisian landmarks. We’ll visit sites such as Place Vendôme, Place de l’Opéra Garnier, the Musée d’Orsay, Place de la Concorde, and the famous Champs Elysées, known as one of the world’s most fashionable avenues. Along the way, we’ll also stop at the Arc de Triomphe, Alexander Bridge, Les Invalides, and other notable locations.\n\nFollowing our city exploration, we'll ascend to the 3rd Level of the Eiffel Tower, providing us with a breathtaking panoramic view of the city. The Eiffel Tower, distinguished by its iconic tapering cast iron tip, is a symbol of the city and testament to the nation's spirit.\n\nOur adventure continues with a visit to the Palace of Versailles, an internationally acclaimed masterpiece located in Versailles, approximately 12 miles (19 km) west of Paris, France. This magnificent palace is the property of the French Republic and has been under the stewardship of the Public Establishment of the Palace, Museum, and National Estate of Versailles, overseen by the French Ministry of Culture since 1995. Drawing in a staggering 15,000,000 visitors each year, the Palace, Park, and Gardens of Versailles rank among the most sought-after tourist destinations globally.", 
             image: "/images/paris.png",
             stay: "Hotel Mercure Paris Centre Tour Eiffel (4 Star)",
             transfer: "Shared Coach"

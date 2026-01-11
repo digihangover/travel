@@ -22,14 +22,27 @@ export default function DestinationsPage() {
   };
 
   return (
-    <div className="pt-28 pb-16 min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       <ScrollTop />
-      <div className="container mx-auto px-6">
-        <div className="flex justify-between items-end mb-8">
-          <div>
-            <h1 className="text-4xl font-bold font-serif text-gray-900 mb-2">All Destinations</h1>
-            <p className="text-gray-500">Discover handpicked escapes for the refined global explorer.</p>
-          </div>
+      
+      {/* Hero Section */}
+      <div className="relative h-[50vh] min-h-[400px] w-full overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src="/images/hero_bg.png" 
+            alt="Destinations Hero" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/40" />
+        </div>
+        <div className="relative h-full container mx-auto px-6 flex flex-col justify-center items-center text-center text-white">
+          <h1 className="text-5xl md:text-6xl font-bold font-serif mb-4">All Destinations</h1>
+          <p className="text-xl max-w-2xl font-light">Discover handpicked escapes for the refined global explorer.</p>
+        </div>
+      </div>
+
+      <div className="container mx-auto px-6 py-16">
+        <div className="flex justify-end items-center mb-8">
           <button className="text-blue-600 font-medium text-sm flex items-center gap-1 hover:text-blue-700 transition-colors">
             Show Map <i className="pi pi-map" />
           </button>

@@ -27,20 +27,7 @@ export default function BookingCard({
         <p className="text-sm text-gray-500 mt-2 font-medium">{duration}</p>
       </div>
       
-      <div className="mb-8">
-        <label className="text-sm font-bold text-gray-900 block mb-3">Stay Category</label>
-        <div className="grid grid-cols-2 gap-3">
-          <div className="border border-gray-200 bg-white text-gray-600 px-3 py-3 rounded-xl font-medium flex flex-col items-center justify-center cursor-pointer hover:border-orange-500 hover:bg-orange-50 transition-all text-center">
-            <span className="text-sm">Deluxe</span>
-          </div>
-          <div className="border-2 border-orange-500 bg-orange-50 text-orange-700 px-3 py-3 rounded-xl font-medium flex flex-col items-center justify-center cursor-pointer relative text-center">
-            <span className="text-sm font-bold">Super Deluxe</span>
-            <div className="absolute -top-2 -right-2 bg-orange-500 text-white rounded-full p-1">
-              <i className="pi pi-check text-xs" />
-            </div>
-          </div>
-        </div>
-      </div>
+
 
       <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl mb-3 transition-all shadow-lg shadow-blue-200 transform hover:-translate-y-1">
         Book This Adventure

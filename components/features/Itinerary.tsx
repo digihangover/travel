@@ -30,14 +30,41 @@ export default function Itinerary({ items }: ItineraryProps) {
     );
   };
 
+  const toggleAll = () => {
+    if (openItems.length === items.length) {
+      setOpenItems([]);
+    } else {
+      setOpenItems(items.map((_, index) => index));
+    }
+  };
+
+  const allExpanded = openItems.length === items.length;
+
   return (
-    <div className="space-y-8 relative before:absolute before:left-4 before:top-4 before:bottom-4 before:w-[2px] before:bg-gray-100">
+    <div className="space-y-8 relative">
+      <div className="flex justify-end mb-4">
+        <button 
+          onClick={toggleAll}
+          className="text-sm font-medium text-blue-600 hover:text-blue-700 flex items-center gap-1 transition-colors"
+        >
+          {allExpanded ? (
+            <>
+              <i className="pi pi-minus-circle" /> Collapse All
+            </>
+          ) : (
+            <>
+              <i className="pi pi-plus-circle" /> Expand All
+            </>
+          )}
+        </button>
+      </div>
+      <div className="relative before:absolute before:left-4 before:top-4 before:bottom-4 before:w-[2px] before:bg-gray-100">
       {items && items.length > 0 ? (
         <>
           {visibleItems.map((item, index) => {
             const isOpen = openItems.includes(index);
             return (
-              <div key={index} className="relative pl-12">
+              <div key={index} id={`itinerary-item-${index}`} className="relative pl-12">
                 {/* Day Marker */}
                 <div 
                   className={`absolute left-0 top-0 w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm border-4 border-white shadow-sm transition-colors ${
@@ -87,7 +114,15 @@ export default function Itinerary({ items }: ItineraryProps) {
           {!isExpanded && items.length > 3 && (
             <div className="pl-12 pt-4">
               <button
-                onClick={() => setIsExpanded(true)}
+                onClick={() => {
+                  setIsExpanded(true);
+                  setTimeout(() => {
+                    const nextItem = document.getElementById('itinerary-item-3');
+                    if (nextItem) {
+                      nextItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                  }, 100);
+                }}
                 className="w-full py-3 border border-gray-200 rounded-full text-gray-600 font-medium hover:bg-gray-50 transition-colors"
               >
                 View Full Itinerary ({items.length - 3} more days)
@@ -109,6 +144,7 @@ export default function Itinerary({ items }: ItineraryProps) {
       ) : (
         <p className="text-gray-500 pl-12">Detailed itinerary available upon request.</p>
       )}
+      </div>
     </div>
   );
 }

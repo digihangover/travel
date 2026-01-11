@@ -31,12 +31,12 @@ export default function ItineraryTabs({ items }: ItineraryTabsProps) {
   return (
     <div>
       {/* Tabs Header */}
-      <div className="flex flex-wrap gap-3 mb-8 border-b border-gray-100 pb-4">
+      <div className="flex gap-3 mb-8 border-b border-gray-100 pb-4 overflow-x-auto scrollbar-hide snap-x -mx-6 px-6 md:mx-0 md:px-0">
         {tabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
-            className={`px-6 py-3 rounded-lg font-medium text-sm transition-all flex items-center gap-2 ${
+            className={`px-6 py-3 rounded-lg font-medium text-sm transition-all flex items-center gap-2 whitespace-nowrap flex-shrink-0 snap-start ${
               activeTab === tab.id
                 ? "bg-orange-500 text-white shadow-lg shadow-orange-200"
                 : "bg-white border border-gray-200 text-gray-600 hover:bg-gray-50"
