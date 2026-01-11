@@ -3,6 +3,7 @@ import DestinationCard from "@/components/features/DestinationCard";
 import { constructMetadata } from "@/components/seo/Meta";
 import { destinations } from "@/data/destinations";
 import TourismAlliances from "@/components/features/TourismAlliances";
+import Counter from "@/components/ui/Counter";
 
 export const metadata = constructMetadata({
   title: "Home",
@@ -84,7 +85,9 @@ export default function Home() {
                {/* Placeholder for a feature image, reusing santorini or similar for now */}
                <div className="absolute inset-0 bg-[url('/images/santorini.png')] bg-cover bg-center" />
                <div className="absolute bottom-10 left-10 bg-blue-600 text-white p-6 rounded-xl max-w-xs shadow-xl">
-                 <h3 className="text-3xl font-bold mb-1">500+</h3>
+                 <h3 className="text-3xl font-bold mb-1 flex items-center">
+                   <Counter from={0} to={500} duration={2} />+
+                 </h3>
                  <p className="text-sm font-medium opacity-90">Hand-picked Luxury Hotels & Villas</p>
                </div>
             </div>
@@ -103,7 +106,7 @@ export default function Home() {
             <input 
               type="email" 
               placeholder="Your Email Address" 
-              className="flex-1 px-6 py-4 rounded-full text-gray-900 focus:outline-none focus:ring-2 focus:ring-white/50"
+              className="flex-1 px-6 py-4 rounded-full bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/50"
             />
             <button className="bg-white text-blue-900 px-8 py-4 rounded-full font-bold hover:bg-blue-50 transition-colors">
               Subscribe

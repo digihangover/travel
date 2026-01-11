@@ -40,9 +40,9 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="bg-white rounded-full p-2 md:p-3 shadow-2xl max-w-4xl w-full flex flex-col md:flex-row gap-2 items-center"
+          className="bg-white rounded-3xl md:rounded-full p-4 md:p-3 shadow-2xl max-w-4xl w-full flex flex-col md:flex-row gap-4 md:gap-2 items-center"
         >
-          <div className="flex-1 w-full px-4 py-2 border-b md:border-b-0 md:border-r border-gray-100">
+          <div className="flex-1 w-full px-2 md:px-4 py-2 border-b border-gray-100 md:border-b-0 md:border-r">
             <label className="block text-xs uppercase text-gray-400 font-bold tracking-wider mb-1">Destination</label>
             <input 
               type="text" 
@@ -51,7 +51,7 @@ const Hero = () => {
             />
           </div>
           
-          <div className="flex-1 w-full px-4 py-2 border-b md:border-b-0 md:border-r border-gray-100">
+          <div className="flex-1 w-full px-2 md:px-4 py-2 border-b border-gray-100 md:border-b-0 md:border-r">
              <label className="block text-xs uppercase text-gray-400 font-bold tracking-wider mb-1">Date</label>
              <Calendar 
                 value={date} 
@@ -62,7 +62,7 @@ const Hero = () => {
              />
           </div>
 
-          <div className="flex-1 w-full px-4 py-2">
+          <div className="flex-1 w-full px-2 md:px-4 py-2">
             <label className="block text-xs uppercase text-gray-400 font-bold tracking-wider mb-1">Travelers</label>
             <input 
               type="number" 
@@ -72,7 +72,7 @@ const Hero = () => {
             />
           </div>
 
-          <button className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-8 py-4 font-medium transition-all shadow-lg hover:shadow-blue-500/30 w-full md:w-auto mt-2 md:mt-0">
+          <button className="bg-blue-600 hover:bg-blue-700 text-white rounded-xl md:rounded-full px-8 py-4 font-medium transition-all shadow-lg hover:shadow-blue-500/30 w-full md:w-auto">
             Search
           </button>
         </motion.div>

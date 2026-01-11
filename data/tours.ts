@@ -122,6 +122,105 @@ export const tours = [
            { day: 11, title: "Farewell Dinner", activity: "Dining", description: "Authentic Italian dinner.", image: "/images/santorini.png", stay: "Hotel Artemide", transfer: "Coach" },
            { day: 12, title: "Departure", activity: "Transfer", description: "Transfer to airport.", stay: "N/A", transfer: "Private Car" }
         ]
+      },
+      // Duplicates for UI demonstration (Total 8 items)
+      {
+        id: "5-days-2",
+        duration: "5 Days",
+        days: 5,
+        price: "₹95,000",
+        image: "/images/paris.png",
+        images: ["/images/paris.png", "/images/venice.png", "/images/santorini.png"],
+        route: [{ city: "Paris", days: 3 }, { city: "Zurich", days: 2 }],
+        highlights: ["Eiffel Tower Visit", "Seine River Cruise", "Zurich Old Town"],
+        itinerary: [
+          { day: 1, title: "Arrival in Paris", activity: "Transfer", description: "Welcome to Paris! Private transfer to hotel.", image: "/images/paris.png", stay: "Hotel Mercure Paris Centre Tour Eiffel (4 Star)", transfer: "Private Luxury Sedan" },
+          { day: 2, title: "Paris City Tour", activity: "Sightseeing", description: "Visit Eiffel Tower, Louvre, and Notre Dame.", image: "/images/paris.png", stay: "Hotel Mercure Paris Centre Tour Eiffel (4 Star)", transfer: "Shared Coach" },
+          { day: 3, title: "Paris to Zurich", activity: "Train", description: "High-speed TGV train to Zurich.", image: "/images/venice.png", stay: "Novotel Zurich City West (4 Star)", transfer: "First Class Train Ticket" },
+          { day: 4, title: "Zurich Highlights", activity: "Tour", description: "Walking tour of Zurich Old Town and Lake Zurich.", image: "/images/venice.png", stay: "Novotel Zurich City West (4 Star)", transfer: "Walking Tour" },
+          { day: 5, title: "Departure", activity: "Transfer", description: "Transfer to airport for departure.", stay: "N/A", transfer: "Private Luxury Sedan" }
+        ]
+      },
+      {
+        id: "8-days-2",
+        duration: "8 Days",
+        days: 8,
+        price: "₹1,30,000",
+        image: "/images/venice.png",
+        images: ["/images/venice.png", "/images/amalfi.png", "/images/paris.png"],
+        route: [{ city: "Paris", days: 3 }, { city: "Zurich", days: 2 }, { city: "Milan", days: 3 }],
+        highlights: ["Eiffel Tower", "Swiss Alps", "Milan Duomo"],
+        itinerary: [
+          { day: 1, title: "Arrival in Paris", activity: "Transfer", description: "Welcome to Paris!", image: "/images/paris.png", stay: "Hotel Mercure", transfer: "Private Car" },
+          { day: 2, title: "Paris City Tour", activity: "Sightseeing", description: "Eiffel Tower and Louvre.", image: "/images/paris.png", stay: "Hotel Mercure", transfer: "Coach" },
+          { day: 3, title: "Paris to Zurich", activity: "Train", description: "Train to Zurich.", image: "/images/venice.png", stay: "Novotel Zurich", transfer: "Train" },
+          { day: 4, title: "Mount Titlis", activity: "Adventure", description: "Excursion to Mount Titlis.", image: "/images/venice.png", stay: "Novotel Zurich", transfer: "Coach" },
+          { day: 5, title: "Zurich to Milan", activity: "Train", description: "Scenic train to Milan.", image: "/images/amalfi.png", stay: "Hilton Milan", transfer: "Train" },
+          { day: 6, title: "Milan Fashion Tour", activity: "Shopping", description: "Explore the fashion capital.", image: "/images/amalfi.png", stay: "Hilton Milan", transfer: "Walking" },
+          { day: 7, title: "Lake Como Day Trip", activity: "Excursion", description: "Day trip to beautiful Lake Como.", image: "/images/amalfi.png", stay: "Hilton Milan", transfer: "Coach" },
+          { day: 8, title: "Departure", activity: "Transfer", description: "Transfer to airport.", stay: "N/A", transfer: "Private Car" }
+        ]
+      },
+      {
+        id: "12-days-2",
+        duration: "12 Days",
+        days: 12,
+        price: "₹2,35,000",
+        image: "/images/santorini.png",
+        images: ["/images/santorini.png", "/images/venice.png", "/images/paris.png"],
+        route: [{ city: "Paris", days: 3 }, { city: "Zurich", days: 2 }, { city: "Venice", days: 2 }, { city: "Rome", days: 5 }],
+        highlights: ["Eiffel Tower", "Swiss Alps", "Gondola Ride", "Colosseum"],
+        itinerary: [
+           { day: 1, title: "Arrival in Paris", activity: "Transfer", description: "Welcome to Paris!", image: "/images/paris.png", stay: "Hotel Mercure", transfer: "Private Car" },
+           { day: 2, title: "Paris City Tour", activity: "Sightseeing", description: "Eiffel Tower and Louvre.", image: "/images/paris.png", stay: "Hotel Mercure", transfer: "Coach" },
+           { day: 3, title: "Paris to Zurich", activity: "Train", description: "Train to Zurich.", image: "/images/venice.png", stay: "Novotel Zurich", transfer: "Train" },
+           { day: 4, title: "Mount Titlis", activity: "Adventure", description: "Excursion to Mount Titlis.", image: "/images/venice.png", stay: "Novotel Zurich", transfer: "Coach" },
+           { day: 5, title: "Zurich to Venice", activity: "Train", description: "Train to Venice.", image: "/images/venice.png", stay: "Hotel Danieli", transfer: "Train" },
+           { day: 6, title: "Venice Canals", activity: "Boat Tour", description: "Gondola ride and St. Mark's Square.", image: "/images/venice.png", stay: "Hotel Danieli", transfer: "Boat" },
+           { day: 7, title: "Venice to Rome", activity: "Train", description: "High-speed train to Rome.", image: "/images/santorini.png", stay: "Hotel Artemide", transfer: "Train" },
+           { day: 8, title: "Ancient Rome", activity: "History", description: "Colosseum and Roman Forum.", image: "/images/santorini.png", stay: "Hotel Artemide", transfer: "Coach" },
+           { day: 9, title: "Vatican City", activity: "Culture", description: "St. Peter's Basilica and Vatican Museums.", image: "/images/santorini.png", stay: "Hotel Artemide", transfer: "Coach" },
+           { day: 10, title: "Rome Leisure", activity: "Leisure", description: "Free day for shopping.", image: "/images/santorini.png", stay: "Hotel Artemide", transfer: "None" },
+           { day: 11, title: "Farewell Dinner", activity: "Dining", description: "Authentic Italian dinner.", image: "/images/santorini.png", stay: "Hotel Artemide", transfer: "Coach" },
+           { day: 12, title: "Departure", activity: "Transfer", description: "Transfer to airport.", stay: "N/A", transfer: "Private Car" }
+        ]
+      },
+      {
+        id: "5-days-3",
+        duration: "5 Days",
+        days: 5,
+        price: "₹95,000",
+        image: "/images/paris.png",
+        images: ["/images/paris.png", "/images/venice.png", "/images/santorini.png"],
+        route: [{ city: "Paris", days: 3 }, { city: "Zurich", days: 2 }],
+        highlights: ["Eiffel Tower Visit", "Seine River Cruise", "Zurich Old Town"],
+        itinerary: [
+          { day: 1, title: "Arrival in Paris", activity: "Transfer", description: "Welcome to Paris! Private transfer to hotel.", image: "/images/paris.png", stay: "Hotel Mercure Paris Centre Tour Eiffel (4 Star)", transfer: "Private Luxury Sedan" },
+          { day: 2, title: "Paris City Tour", activity: "Sightseeing", description: "Eiffel Tower and Louvre.", image: "/images/paris.png", stay: "Hotel Mercure Paris Centre Tour Eiffel (4 Star)", transfer: "Shared Coach" },
+          { day: 3, title: "Paris to Zurich", activity: "Train", description: "High-speed TGV train to Zurich.", image: "/images/venice.png", stay: "Novotel Zurich City West (4 Star)", transfer: "First Class Train Ticket" },
+          { day: 4, title: "Zurich Highlights", activity: "Tour", description: "Walking tour of Zurich Old Town and Lake Zurich.", image: "/images/venice.png", stay: "Novotel Zurich City West (4 Star)", transfer: "Walking Tour" },
+          { day: 5, title: "Departure", activity: "Transfer", description: "Transfer to airport for departure.", stay: "N/A", transfer: "Private Luxury Sedan" }
+        ]
+      },
+      {
+        id: "8-days-3",
+        duration: "8 Days",
+        days: 8,
+        price: "₹1,30,000",
+        image: "/images/venice.png",
+        images: ["/images/venice.png", "/images/amalfi.png", "/images/paris.png"],
+        route: [{ city: "Paris", days: 3 }, { city: "Zurich", days: 2 }, { city: "Milan", days: 3 }],
+        highlights: ["Eiffel Tower", "Swiss Alps", "Milan Duomo"],
+        itinerary: [
+          { day: 1, title: "Arrival in Paris", activity: "Transfer", description: "Welcome to Paris!", image: "/images/paris.png", stay: "Hotel Mercure", transfer: "Private Car" },
+          { day: 2, title: "Paris City Tour", activity: "Sightseeing", description: "Eiffel Tower and Louvre.", image: "/images/paris.png", stay: "Hotel Mercure", transfer: "Coach" },
+          { day: 3, title: "Paris to Zurich", activity: "Train", description: "Train to Zurich.", image: "/images/venice.png", stay: "Novotel Zurich", transfer: "Train" },
+          { day: 4, title: "Mount Titlis", activity: "Adventure", description: "Excursion to Mount Titlis.", image: "/images/venice.png", stay: "Novotel Zurich", transfer: "Coach" },
+          { day: 5, title: "Zurich to Milan", activity: "Train", description: "Scenic train to Milan.", image: "/images/amalfi.png", stay: "Hilton Milan", transfer: "Train" },
+          { day: 6, title: "Milan Fashion Tour", activity: "Shopping", description: "Explore the fashion capital.", image: "/images/amalfi.png", stay: "Hilton Milan", transfer: "Walking" },
+          { day: 7, title: "Lake Como Day Trip", activity: "Excursion", description: "Day trip to beautiful Lake Como.", image: "/images/amalfi.png", stay: "Hilton Milan", transfer: "Coach" },
+          { day: 8, title: "Departure", activity: "Transfer", description: "Transfer to airport.", stay: "N/A", transfer: "Private Car" }
+        ]
       }
     ]
   },
@@ -164,5 +263,43 @@ export const tours = [
     description: "Relax on the stunning Amalfi Coast. Stay in luxury villas, enjoy private boat tours, and taste the best Italian cuisine.",
     itinerary: []
   },
-   
+  {
+    id: "kerala-backwaters",
+    title: "Kerala Backwaters",
+    location: "India",
+    price: "₹45,000 / person",
+    image: "/images/hero_bg.png",
+    rating: 4.8,
+    category: "Nature",
+    tag: "Trending",
+    duration: "6 Days",
+    description: "Relax on a houseboat in the serene backwaters of Kerala. Experience the lush green landscapes and authentic cuisine.",
+    itinerary: []
+  },
+  {
+    id: "rajasthan-royals",
+    title: "Royal Rajasthan",
+    location: "India",
+    price: "₹65,000 / person",
+    image: "/images/hero_bg.png",
+    rating: 4.9,
+    category: "Cultural",
+    tag: "Heritage",
+    duration: "8 Days",
+    description: "Explore the majestic forts and palaces of Jaipur, Jodhpur, and Udaipur. Experience the royal heritage of India.",
+    itinerary: []
+  },
+  {
+    id: "goa-beach-party",
+    title: "Goa Beach & Party",
+    location: "India",
+    price: "₹35,000 / person",
+    image: "/images/hero_bg.png",
+    rating: 4.7,
+    category: "Beach",
+    tag: "Party",
+    duration: "5 Days",
+    description: "Enjoy the sun, sand, and nightlife of Goa. Visit pristine beaches and historic churches.",
+    itinerary: []
+  }
 ];

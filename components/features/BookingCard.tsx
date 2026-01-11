@@ -5,9 +5,18 @@ interface BookingCardProps {
   duration: string;
   availableDates?: string;
   groupSize?: string;
+  onEnquire?: () => void;
+  onWhatsApp?: () => void;
 }
 
-export default function BookingCard({ price, duration, availableDates = "May, June, July 2026", groupSize = "Max 12 People" }: BookingCardProps) {
+export default function BookingCard({ 
+  price, 
+  duration, 
+  availableDates = "May, June, July 2026", 
+  groupSize = "Max 12 People",
+  onEnquire,
+  onWhatsApp
+}: BookingCardProps) {
   return (
     <div className="bg-white p-6 rounded-2xl shadow-xl border border-gray-100">
       <div className="mb-6">
@@ -18,32 +27,18 @@ export default function BookingCard({ price, duration, availableDates = "May, Ju
         <p className="text-sm text-gray-500 mt-2 font-medium">{duration}</p>
       </div>
       
-      <div className="space-y-4 mb-8">
-        <div className="flex items-center gap-3 text-sm text-gray-700 border-b border-gray-100 pb-3">
-          <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
-             <i className="pi pi-calendar" />
-          </div>
-          <div>
-            <span className="block text-xs text-gray-500 font-bold">Available Dates</span>
-            <span className="font-medium">{availableDates}</span>
-          </div>
-        </div>
-        <div className="flex items-center gap-3 text-sm text-gray-700 border-b border-gray-100 pb-3">
-          <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
-             <i className="pi pi-users" />
-          </div>
-          <div>
-             <span className="block text-xs text-gray-500 font-bold">Group Size</span>
-             <span className="font-medium">{groupSize}</span>
-          </div>
-        </div>
-      </div>
-
       <div className="mb-8">
         <label className="text-sm font-bold text-gray-900 block mb-3">Stay Category</label>
-        <div className="border border-orange-500 bg-orange-50 text-orange-700 px-4 py-3 rounded-xl font-medium flex justify-between items-center cursor-pointer hover:bg-orange-100 transition-colors">
-          <span>Super Deluxe</span>
-          <i className="pi pi-check-circle text-xl" />
+        <div className="grid grid-cols-2 gap-3">
+          <div className="border border-gray-200 bg-white text-gray-600 px-3 py-3 rounded-xl font-medium flex flex-col items-center justify-center cursor-pointer hover:border-orange-500 hover:bg-orange-50 transition-all text-center">
+            <span className="text-sm">Deluxe</span>
+          </div>
+          <div className="border-2 border-orange-500 bg-orange-50 text-orange-700 px-3 py-3 rounded-xl font-medium flex flex-col items-center justify-center cursor-pointer relative text-center">
+            <span className="text-sm font-bold">Super Deluxe</span>
+            <div className="absolute -top-2 -right-2 bg-orange-500 text-white rounded-full p-1">
+              <i className="pi pi-check text-xs" />
+            </div>
+          </div>
         </div>
       </div>
 
@@ -51,10 +46,16 @@ export default function BookingCard({ price, duration, availableDates = "May, Ju
         Book This Adventure
       </button>
       <div className="flex gap-3">
-        <button className="flex-1 border border-gray-200 py-3 rounded-xl text-sm font-bold hover:bg-gray-50 flex items-center justify-center gap-2 transition-colors">
+        <button 
+          onClick={onEnquire}
+          className="flex-1 border border-gray-200 py-3 rounded-xl text-sm font-bold hover:bg-gray-50 flex items-center justify-center gap-2 transition-colors"
+        >
           <i className="pi pi-envelope" /> Enquire
         </button>
-        <button className="flex-1 border border-gray-200 py-3 rounded-xl text-sm font-bold hover:bg-gray-50 flex items-center justify-center gap-2 text-green-600 transition-colors">
+        <button 
+          onClick={onWhatsApp}
+          className="flex-1 border border-gray-200 py-3 rounded-xl text-sm font-bold hover:bg-gray-50 flex items-center justify-center gap-2 text-green-600 transition-colors"
+        >
           <i className="pi pi-whatsapp text-lg" /> WhatsApp
         </button>
       </div>

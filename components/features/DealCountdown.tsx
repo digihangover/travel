@@ -1,24 +1,64 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 export default function DealCountdown() {
   const [timeLeft, setTimeLeft] = useState({
-    days: 5,
-    hours: 8,
-    minutes: 19,
+    days: 0,
+    hours: 0,
+    minutes: 0,
     seconds: 0
   });
 
   useEffect(() => {
+    // Set the date we're counting down to
+    // In a real app, this would come from an API or config
+    // For now, we'll set it to 5 days from the first visit (stored in localStorage) 
+    // or use a fixed date if provided
+    
+    const calculateTimeLeft = () => {
+      // Fixed date for the sale end (e.g., 5 days from now)
+      // You can adjust this date to be dynamic or fixed
+      const saleEndDate = new Date();
+      saleEndDate.setDate(saleEndDate.getDate() + 5); // Default 5 days from now if not stored
+      
+      let targetDate = localStorage.getItem('saleTargetDate');
+      
+      if (!targetDate) {
+        targetDate = saleEndDate.toISOString();
+        localStorage.setItem('saleTargetDate', targetDate);
+      }
+
+      const difference = +new Date(targetDate) - +new Date();
+      
+      if (difference > 0) {
+        return {
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+          minutes: Math.floor((difference / 1000 / 60) % 60),
+          seconds: Math.floor((difference / 1000) % 60)
+        };
+      }
+      
+      // If timer ends, reset it for demo purposes or show 0
+      // For this demo, let's reset it to 5 days again to keep the UI active
+      const newTarget = new Date();
+      newTarget.setDate(newTarget.getDate() + 5);
+      localStorage.setItem('saleTargetDate', newTarget.toISOString());
+      
+      return {
+        days: 5,
+        hours: 0,
+        minutes: 0,
+        seconds: 0
+      };
+    };
+
+    setTimeLeft(calculateTimeLeft());
+
     const timer = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev.seconds > 0) return { ...prev, seconds: prev.seconds - 1 };
-        if (prev.minutes > 0) return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
-        if (prev.hours > 0) return { ...prev, hours: prev.hours - 1, minutes: 59, seconds: 59 };
-        if (prev.days > 0) return { ...prev, days: prev.days - 1, hours: 23, minutes: 59, seconds: 59 };
-        return prev;
-      });
+      setTimeLeft(calculateTimeLeft());
     }, 1000);
 
     return () => clearInterval(timer);
@@ -36,12 +76,23 @@ export default function DealCountdown() {
         </div>
         <div className="flex items-center gap-2 mb-4">
           <span className="text-xl">on selected trips</span>
-          <span className="bg-gradient-to-r from-orange-500 via-white to-green-500 text-gray-900 text-xs font-bold px-2 py-1 rounded uppercase">Republic Day Sale!</span>
+          <motion.span 
+            animate={{ scale: [1, 1.05, 1] }}
+            transition={{ repeat: Infinity, duration: 2 }}
+            className="bg-gradient-to-r from-orange-500 via-white to-green-500 text-gray-900 text-xs font-bold px-2 py-1 rounded uppercase shadow-lg shadow-orange-500/20"
+          >
+            Republic Day Sale!
+          </motion.span>
         </div>
         <p className="text-gray-400 text-sm mb-6">Connect with our destination experts to get exciting discounts</p>
-        <button className="bg-gradient-to-r from-orange-600 to-green-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:shadow-orange-500/20 transition-all">
-          Know more about the Deal
-        </button>
+        <motion.button 
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="bg-gradient-to-r from-orange-600 to-green-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:shadow-orange-500/20 transition-all relative overflow-hidden group"
+        >
+          <span className="relative z-10">Know more about the Deal</span>
+          <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+        </motion.button>
       </div>
 
       <div className="relative z-10 flex flex-col items-center md:items-end">

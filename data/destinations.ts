@@ -15,7 +15,7 @@ export const destinations = [
       temp: "24°C / 75°F (Annual)",
       hub: "Santorini (JTR) Airport"
     },
-    images: ["/images/santorini.png", "/images/sailing.png", "/images/wine_tasting.png"]
+    images: ["/images/santorini.png", "/images/hero_bg.png", "/images/hero_bg.png"]
   },
   {
     id: "kyoto",

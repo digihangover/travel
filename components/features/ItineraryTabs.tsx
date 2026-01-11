@@ -51,7 +51,9 @@ export default function ItineraryTabs({ items }: ItineraryTabsProps) {
       {/* Tab Content */}
       <div className="bg-white rounded-2xl">
         {activeTab === "Itinerary" && (
-          <Itinerary items={items} />
+          <div className="space-y-8">
+            <Itinerary items={items} />
+          </div>
         )}
 
         {activeTab === "Summarised View" && (
