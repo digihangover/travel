@@ -31,7 +31,7 @@ export default function ItineraryTabs({ items }: ItineraryTabsProps) {
   return (
     <div>
       {/* Tabs Header */}
-      <div className="flex gap-3 mb-8 border-b border-gray-100 pb-4 overflow-x-auto scrollbar-hide snap-x -mx-6 px-6 md:mx-0 md:px-0">
+      <div className="sticky top-[85px] z-40 bg-white flex gap-3 mb-8 border-b border-gray-100 pb-4 overflow-x-auto scrollbar-hide snap-x -mx-6 px-6 md:mx-0 md:px-0 pt-4">
         {tabs.map((tab) => (
           <button
             key={tab.id}

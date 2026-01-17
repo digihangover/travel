@@ -12,7 +12,7 @@ export const tours = [
     description: "Embark on a journey through the heart of Europe. Choose from our curated packages ranging from quick getaways to extensive explorations.",
     packages: [
       {
-        id: "5-days",
+        id: "paris-zurich-express",
         duration: "5 Days",
         days: 5,
         name: "Paris & Zurich Express",
@@ -72,7 +72,7 @@ export const tours = [
         ]
       },
       {
-        id: "8-days",
+        id: "european-trio-paris-zurich-milan",
         duration: "8 Days",
         days: 8,
         name: "European Trio: Paris, Zurich & Milan",
@@ -97,7 +97,7 @@ export const tours = [
         ]
       },
       {
-        id: "12-days",
+        id: "grand-european-discovery",
         duration: "12 Days",
         days: 12,
         name: "Grand European Discovery",
@@ -128,7 +128,7 @@ export const tours = [
       },
       // Duplicates for UI demonstration (Total 8 items)
       {
-        id: "5-days-2",
+        id: "paris-zurich-express-v2",
         duration: "5 Days",
         days: 5,
         name: "Paris & Zurich Express",
@@ -146,7 +146,7 @@ export const tours = [
         ]
       },
       {
-        id: "8-days-2",
+        id: "european-trio-paris-zurich-milan-v2",
         duration: "8 Days",
         days: 8,
         name: "European Trio: Paris, Zurich & Milan",
@@ -167,7 +167,7 @@ export const tours = [
         ]
       },
       {
-        id: "12-days-2",
+        id: "grand-european-discovery-v2",
         duration: "12 Days",
         days: 12,
         name: "Grand European Discovery",
@@ -192,7 +192,7 @@ export const tours = [
         ]
       },
       {
-        id: "5-days-3",
+        id: "paris-zurich-express-v3",
         duration: "5 Days",
         days: 5,
         name: "Paris & Zurich Express",
@@ -210,7 +210,7 @@ export const tours = [
         ]
       },
       {
-        id: "8-days-3",
+        id: "european-trio-paris-zurich-milan-v3",
         duration: "8 Days",
         days: 8,
         name: "European Trio: Paris, Zurich & Milan",
@@ -245,7 +245,7 @@ export const tours = [
     description: "Embark on a journey through the heart of Europe. Choose from our curated packages ranging from quick getaways to extensive explorations.",
     packages: [
       {
-        id: "5-days",
+        id: "paris-zurich-express",
         duration: "5 Days",
         days: 5,
         name: "Paris & Zurich Express",
@@ -305,7 +305,7 @@ export const tours = [
         ]
       },
       {
-        id: "8-days",
+        id: "european-trio-paris-zurich-milan",
         duration: "8 Days",
         days: 8,
         name: "European Trio: Paris, Zurich & Milan",
@@ -330,7 +330,7 @@ export const tours = [
         ]
       },
       {
-        id: "12-days",
+        id: "grand-european-discovery",
         duration: "12 Days",
         days: 12,
         name: "Grand European Discovery",
@@ -361,7 +361,7 @@ export const tours = [
       },
       // Duplicates for UI demonstration (Total 8 items)
       {
-        id: "5-days-2",
+        id: "paris-zurich-express-v2",
         duration: "5 Days",
         days: 5,
         name: "Paris & Zurich Express",
@@ -379,7 +379,7 @@ export const tours = [
         ]
       },
       {
-        id: "8-days-2",
+        id: "european-trio-paris-zurich-milan-v2",
         duration: "8 Days",
         days: 8,
         name: "European Trio: Paris, Zurich & Milan",
@@ -400,7 +400,7 @@ export const tours = [
         ]
       },
       {
-        id: "12-days-2",
+        id: "grand-european-discovery-v2",
         duration: "12 Days",
         days: 12,
         name: "Grand European Discovery",
@@ -425,7 +425,7 @@ export const tours = [
         ]
       },
       {
-        id: "5-days-3",
+        id: "paris-zurich-express-v3",
         duration: "5 Days",
         days: 5,
         name: "Paris & Zurich Express",
@@ -443,7 +443,7 @@ export const tours = [
         ]
       },
       {
-        id: "8-days-3",
+        id: "european-trio-paris-zurich-milan-v3",
         duration: "8 Days",
         days: 8,
         name: "European Trio: Paris, Zurich & Milan",

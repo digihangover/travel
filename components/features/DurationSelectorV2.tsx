@@ -1,15 +1,14 @@
-"use client";
-
+import Link from "next/link";
 import Image from "next/image";
 import { Package } from "./DurationSelector";
 
 interface DurationSelectorProps {
   packages: Package[];
   selectedPackage: Package | null;
-  onSelect: (pkg: Package) => void;
+  tourId: string;
 }
 
-export default function DurationSelectorV2({ packages, selectedPackage, onSelect }: DurationSelectorProps) {
+export default function DurationSelectorV2({ packages, selectedPackage, tourId }: DurationSelectorProps) {
   if (!packages || packages.length === 0) return null;
 
   return (
@@ -23,9 +22,9 @@ export default function DurationSelectorV2({ packages, selectedPackage, onSelect
              : "";
 
            return (
-            <div 
+            <Link 
               key={pkg.id}
-              onClick={() => onSelect(pkg)}
+              href={`/tours/${tourId}/${pkg.id}`}
               className={`bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer group border flex flex-col h-full ${
                 selectedPackage?.id === pkg.id ? 'border-blue-600 ring-2 ring-blue-600 ring-offset-2' : 'border-gray-100'
               }`}
@@ -67,12 +66,12 @@ export default function DurationSelectorV2({ packages, selectedPackage, onSelect
                 </div>
 
                 <div className="mt-3 flex justify-center items-center">
-                  <button className="bg-[#0056D2] text-white text-xs font-bold px-4 py-2 rounded shadow-sm hover:bg-blue-800 transition-colors uppercase whitespace-nowrap">
+                  <span className="bg-[#0056D2] text-white text-xs font-bold px-4 py-2 rounded shadow-sm hover:bg-blue-800 transition-colors uppercase whitespace-nowrap">
                     View Details
-                  </button>
+                  </span>
                 </div>
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>

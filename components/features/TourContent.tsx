@@ -56,11 +56,16 @@ interface Tour {
 
 interface TourContentProps {
   tour: Tour;
+  initialPackageId?: string;
 }
 
-export default function TourContent({ tour }: TourContentProps) {
+export default function TourContent({ tour, initialPackageId }: TourContentProps) {
   const hasPackages = tour.packages && tour.packages.length > 0;
-  const initialPackage = hasPackages ? tour.packages![0] : null;
+  
+  // Find initial package based on ID or default to first
+  const initialPackage = hasPackages 
+    ? (initialPackageId ? tour.packages!.find(p => p.id === initialPackageId) || tour.packages![0] : tour.packages![0])
+    : null;
   
   const [selectedPackage, setSelectedPackage] = useState<Package | null>(initialPackage);
   const [isConnectOpen, setIsConnectOpen] = useState(false);
@@ -120,13 +125,13 @@ export default function TourContent({ tour }: TourContentProps) {
                 <DurationSelectorV2 
                   packages={tour.packages!} 
                   selectedPackage={selectedPackage} 
-                  onSelect={setSelectedPackage} 
+                  tourId={tour.id}
                 />
               ) : (
                 <DurationSelector 
                   packages={tour.packages!} 
                   selectedPackage={selectedPackage} 
-                  onSelect={setSelectedPackage} 
+                  tourId={tour.id}
                 />
               )
             )}

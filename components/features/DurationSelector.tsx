@@ -1,5 +1,4 @@
-"use client";
-
+import Link from "next/link";
 import Image from "next/image";
 
 interface ItineraryItem {
@@ -33,10 +32,10 @@ export interface Package {
 interface DurationSelectorProps {
   packages: Package[];
   selectedPackage: Package | null;
-  onSelect: (pkg: Package) => void;
+  tourId: string;
 }
 
-export default function DurationSelector({ packages, selectedPackage, onSelect }: DurationSelectorProps) {
+export default function DurationSelector({ packages, selectedPackage, tourId }: DurationSelectorProps) {
   if (!packages || packages.length === 0) return null;
 
   return (
@@ -44,10 +43,10 @@ export default function DurationSelector({ packages, selectedPackage, onSelect }
       <h2 className="text-2xl font-bold font-serif text-gray-900 mb-6">Choose Trip Duration</h2>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {packages.map((pkg) => (
-          <button
+          <Link
             key={pkg.id}
-            onClick={() => onSelect(pkg)}
-            className={`relative h-32 rounded-xl overflow-hidden text-left group transition-all duration-300 ${
+            href={`/tours/${tourId}/${pkg.id}`}
+            className={`relative h-32 rounded-xl overflow-hidden text-left group transition-all duration-300 block ${
               selectedPackage?.id === pkg.id 
                 ? "ring-4 ring-blue-600 scale-105 z-10 shadow-xl" 
                 : "hover:opacity-90 hover:scale-105 hover:shadow-lg opacity-80"
@@ -64,7 +63,7 @@ export default function DurationSelector({ packages, selectedPackage, onSelect }
                 <i className="pi pi-check text-xs font-bold" />
               </div>
             )}
-          </button>
+          </Link>
         ))}
       </div>
     </div>

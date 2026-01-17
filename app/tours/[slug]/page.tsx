@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { constructMetadata } from "@/components/seo/Meta";
 import { tours } from "@/data/tours";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import TourContent from "@/components/features/TourContent";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
@@ -22,6 +22,12 @@ export default async function TourDetail({ params }: { params: Promise<{ slug: s
 
   if (!tour) {
     notFound();
+  }
+
+  // Redirect to the first package if packages exist
+  if (tour.packages && tour.packages.length > 0) {
+    const firstPackageId = tour.packages[0].id;
+    redirect(`/tours/${slug}/${firstPackageId}`);
   }
 
   return <TourContent tour={tour} />;
